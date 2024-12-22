@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <meta http-equiv="refresh" content="1"> -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>random-image-api</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="box">
+      <span id="loader"></span>
+
+      <div id="imagebox">
+        <img
+          src="https://picsum.photos/240/300?random=300"
+          alt=""
+          style="border-radius: 10px"
+        />
+      </div>
+      <button id="pulsebutton"></button>
+    </div>
+    <script>
+      let pulsebutton = document.getElementById("pulsebutton");
+
+      let body = document.querySelector("body");
+
+      let random = document.querySelector("img");
+
+      function changeImg() {
+        random.src =
+          "https://picsum.photos/240/300?random=300" +
+          Math.floor(Math.random() * 1000);
+
+        let randomColor = Math.floor(Math.random() * 1677721).toString(16);
+        document.body.style.backgroundColor = `#${randomColor}`;
+        pulsebutton.innerText = `#${randomColor}`;
+
+        // let randombtnColor = Math.floor(Math.random() * 1678933).toString(32);
+        // pulsebutton.style.backgroundColor = `#${randomColor}`;
+        // btn.style.=`#${randomColor}`
+        // this function not working//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      }
+
+      // function changebtn() {
+      //   let randomColorr = Math.floor(Math.random() * 167772616).toString(16);
+      //   pulsebutton.style.backgroundColor = `#${randomColorr}`;
+      //   pulsebutton.innerText = `#${randomColor}`;
+      // }
+
+      // this function not working//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      let num = 1;
+
+      function change() {
+        if (num === 1) {
+          pulsebutton.style.backgroundColor = "#15ec8b";
+          num = 2;
+          console.log(num);
+        } else if (num === 2) {
+          pulsebutton.style.backgroundColor = "#13ee62";
+          num = 3;
+          console.log(num);
+        } else if (num === 3) {
+          pulsebutton.style.backgroundColor = "aqua";
+          num = 4;
+          console.log(num);
+        } else if (num === 4) {
+          pulsebutton.style.backgroundColor = "pink";
+          num = 5;
+          console.log(num);
+        } else if (num === 5) {
+          pulsebutton.style.backgroundColor = "#6eaf8";
+          num = 6;
+          console.log(num);
+        } else if (num === 6) {
+          pulsebutton.style.backgroundColor = "green";
+          num = 1;
+          console.log(num);
+        }
+      }
+
+      pulsebutton.addEventListener("click", () => {
+        changeImg();
+        change();
+      });
+    </script>
+  </body>
+</html>
